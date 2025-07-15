@@ -2,32 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Usuario;
-use App\Models\Empresa;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Tarea extends Model
 {
-    /** @use HasFactory<\Database\Factories\TareaFactory> */
-    use HasFactory;
+    protected $fillable = ['nombre', 'descripcion', 'empresa_id', 'usuario_id'];
 
-    protected $fillable = [
-        'nombre',
-        'descripcion',
-        'empresa_id',
-        'usuario_id',
-    ];
-    
-
-    public function usuario()
+    /**
+     * Obtener el usuario asignado a la tarea.
+     */
+    public function usuario(): BelongsTo
     {
         return $this->belongsTo(Usuario::class);
     }
-    
-    public function empresa()
+
+    /**
+     * Obtener la empresa asignada a la tarea.
+     */
+    public function empresa(): BelongsTo
     {
         return $this->belongsTo(Empresa::class);
     }
-    
 }

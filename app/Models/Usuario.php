@@ -2,18 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Tarea;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Usuario extends Model
 {
-    /** @use HasFactory<\Database\Factories\UsuarioFactory> */
-    use HasFactory;
-     
-    public function tareas()
+    protected $fillable = ['nombre'];
+
+    /**
+     * Obtener las tareas del usuario.
+     */
+    public function tareas(): HasMany
     {
         return $this->hasMany(Tarea::class);
     }
-    
 }

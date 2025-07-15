@@ -2,19 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Tarea;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Empresa extends Model
 {
-    /** @use HasFactory<\Database\Factories\EmpresaFactory> */   
+    protected $fillable = ['nombre'];
 
-    use HasFactory;
-
-    public function tareas()
+    /**
+     * Obtener las tareas de la empresa.
+     */
+    public function tareas(): HasMany
     {
         return $this->hasMany(Tarea::class);
     }
-    
 }
