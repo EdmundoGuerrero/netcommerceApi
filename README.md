@@ -3,8 +3,8 @@
 API desarrollada en Laravel 12 para Netcommerce.
 
 ## Endpoints principales
-- GET /api/empresas
-- POST /api/tareas/crear
+- GET /api/companies
+- POST /api/tasks/create
 
 ## Requisitos
 - PHP >= 8.1
